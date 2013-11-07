@@ -72,7 +72,8 @@ while(my $line = <IN_FH>)
 	# Heading
 	$out_line =~ s/^(=+)(.+?)(=+)/h($1)."$2".h($3)/ge;
 	# Lists
-	$out_line =~ s/^(\s+)(\*|a\.|i\.|1\.)/l($1)."$2"/ge;
+	$out_line =~ s/^(\s+)\*/l($1)."*"/ge;
+	$out_line =~ s/^(\s+)\-/l($1)."1."/ge;
 	# Hyperlinks
 	if($out_line =~ /\[http:\/\//)
 	{
